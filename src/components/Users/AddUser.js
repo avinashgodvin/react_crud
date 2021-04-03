@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import {  useHistory, Link} from "react-router-dom";
 import { Button, Modal } from "react-bootstrap";
+import animation from '../Users/Ajux_loader.gif'
 
 const AddUser = () => {
     let history = useHistory();

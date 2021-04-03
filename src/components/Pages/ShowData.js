@@ -15,12 +15,13 @@ export class ShowData extends Component {
       errMsg: "",
       isLoading: false,
       show: false,
+      isDeleting:false
     };
   }
 
   loadUsers() {
     //http://localhost:3002/findAll
-    
+
     axios
       .get("https://react-crud-backend-v1.herokuapp.com/findAll")
       .then((response) => {
@@ -46,7 +47,7 @@ export class ShowData extends Component {
   }
 
   render() {
-    const { posts, errMsg, isLoading } = this.state;
+    const { posts, errMsg, isLoading, isDeleting } = this.state;
     return (
       <div>
         <div>
@@ -66,6 +67,9 @@ export class ShowData extends Component {
             </Modal.Footer>
           </Modal>
         </div>
+        {isDeleting?(<div className="text-center mt-5 mb-5">
+              <ReactBootstrap.Spinner animation="border" variant="success" />
+          </div>):null}
         <div className="container border mt-2 shadow p-3  bg-white rounded">
           {isLoading ? (
             <div>
@@ -108,20 +112,25 @@ export class ShowData extends Component {
                           >
                             Edit
                           </Link>
-                          <Link
+
+                          <Button
                             className="btn btn-danger"
                             onClick={async () => {
-                              try {
-                                await deleteUser(post.email);
-                                await this.setState({
-                                  show: true,
+                              console.log("clicked")
+                                this.setState({isDeleting:true})  
+
+                                 await deleteUser(post.email);
+                                this.setState({
+                                  isDeleting: false,
+                                  show: true,                                
+                                  
                                 });
-                              } catch (e) {}
-                              // this.loadUsers();
+                              
+                               this.loadUsers();
                             }}
                           >
                             Delete
-                          </Link>
+                          </Button>
                         </td>
                       </tr>
                     ))}
@@ -134,7 +143,7 @@ export class ShowData extends Component {
               )}
             </div>
           ) : (
-            <div className="text-center mt-5">
+            <div className="text-center mt-5 mb-5">
               <ReactBootstrap.Spinner animation="border" variant="success" />
             </div>
           )}
