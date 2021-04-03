@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
+import ShowData from "../Pages/ShowData";
 
 class Home extends Component {
     render() {
         return (
-            <div className="container">
-                <div className="py-4">
-                    <h1>Home page</h1>
-                </div>
-                
+            <div className="container py-4">
+                <ShowData/>
             </div>
         )
     }
