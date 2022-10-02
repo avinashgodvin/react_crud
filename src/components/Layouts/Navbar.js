@@ -3,38 +3,39 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div className="container">
-        <div className="container-fluid">
-          <div className="" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <NavLink className="nav-link font-weight-bold" exact to="/">
-                  Home
-                </NavLink>
-              </li>
-              {/* <li className="nav-item">
-                <NavLink className="nav-link " exact to="/about">
-                  About
-                </NavLink>
-              </li> */}
-              <li className="nav-item">
-                <NavLink
-                  className="nav-link font-weight-bold ml-3"
-                  exact
-                  to="/contact"
-                >
-                  Contact
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-          <Link to="/student/add" className="btn btn-outline-light ">
-            Add Student
-          </Link>
+    <div className="container px-4 mt-2" id="nav">
+      <nav className="navbar navbar-expand-sm    navbar-dark bg-primary">
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarTogglerDemo03"
+          aria-controls="navbarTogglerDemo03"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li className="nav-item">
+              <NavLink className="nav-link " exact to="/">
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" exact to="/contact">
+                Contact
+              </NavLink>
+            </li>
+          </ul>
         </div>
-      </div>
-    </nav>
+        <NavLink to="/student/add" className=" btn btn-outline-light mt-2 mb-2">
+          Add Student
+        </NavLink>
+      </nav>
+    </div>
   );
 };
 

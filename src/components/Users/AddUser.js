@@ -72,7 +72,9 @@ const AddUser = () => {
   };
 
   return (
-    <div className="container py-3 border mt-5 ">
+    <div className="container px-4">
+
+    <div className="container py-3 border mt-2 ">
           <div>
           <Modal show={show}>
             <Modal.Header>Success</Modal.Header>
@@ -142,6 +144,7 @@ const AddUser = () => {
           </button>
         </div>
       </form>
+    </div>
     </div>
   );
 };

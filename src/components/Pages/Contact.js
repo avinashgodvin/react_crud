@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { Redirect, Link } from "react-router-dom";
 
-
 class Contact extends Component {
   constructor(props) {
     super(props);
@@ -19,23 +18,17 @@ class Contact extends Component {
     this.setState({
       show: true,
     });
-
   }
 
-
-
-
-  onChangeHandle =(event)=>{
+  onChangeHandle = (event) => {
     this.setState({
-        [event.target.name] : event.target.value
-    })
-}
-
-
+      [event.target.name]: event.target.value,
+    });
+  };
 
   render() {
     return (
-      <div>
+      <div className="container px-4">
         <div>
           <Modal show={this.state.show}>
             <Modal.Header>Mesage Received</Modal.Header>
@@ -44,56 +37,63 @@ class Contact extends Component {
               will get in touch with you soon
             </Modal.Body>
             <Modal.Footer>
-                <Link className="btn btn-primary" to="/">Ok</Link>
+              <Link className="btn btn-primary" to="/">
+                Ok
+              </Link>
             </Modal.Footer>
           </Modal>
         </div>
 
-        <div className="container border mt-5 shadow p-3 mb-5 bg-white rounded">
+        <div className="container border mt-2 shadow mb-5 bg-white rounded">
           <div className="py-4">
-            <h1 className="text-center text-uppercase py-2 mb-5 font-weight-light">Contact Us</h1>
+            <h1 className="text-center text-uppercase py-2 mb-5 font-weight-light">
+              Contact Us
+            </h1>
             <form
               onSubmit={(event) => {
                 this.handleSubmit(event);
               }}
             >
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">
+              <div className="mb-3">
+                <label for="exampleInputEmail1" className="form-label">
                   Email address
                 </label>
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   required
-                  name = "email"
+                  name="email"
                   value={this.state.email}
-                  onChange= {this.onChangeHandle}
+                  onChange={this.onChangeHandle}
                 />
-                <div id="emailHelp" class="form-text">
+                <div id="emailHelp" className="form-text">
                   We'll never share your email with anyone else.
                 </div>
               </div>
 
-              <div class="mb-3">
-                <label for="exampleInputDesc" class="form-label">
+              <div className="mb-3">
+                <label for="exampleInputDesc" className="form-label">
                   Brief Message
                 </label>
                 <textarea
-                  class="form-control"
+                  className="form-control"
                   id="exampleFormControlTextarea1"
                   rows="3"
                   required
-                  name = "message"
+                  name="message"
                   value={this.state.message}
-                  onChange= {this.onChangeHandle}
+                  onChange={this.onChangeHandle}
                 ></textarea>
               </div>
-              <div class="text-center" >
-              <button type="submit" class="btn btn-primary text-center btn-lg" >
-                Submit
-              </button>
+              <div className="text-center">
+                <button
+                  type="submit"
+                  className="btn btn-primary text-center btn-lg"
+                >
+                  Submit
+                </button>
               </div>
             </form>
           </div>

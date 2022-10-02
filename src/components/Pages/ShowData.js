@@ -15,7 +15,7 @@ export class ShowData extends Component {
       errMsg: "",
       isLoading: false,
       show: false,
-      isDeleting:false
+      isDeleting: false,
     };
   }
 
@@ -67,75 +67,74 @@ export class ShowData extends Component {
             </Modal.Footer>
           </Modal>
         </div>
-        {isDeleting?(<div className="text-center mt-5 mb-5">
-              <ReactBootstrap.Spinner animation="border" variant="success" />
-          </div>):null}
+        {isDeleting ? (
+          <div className="text-center mt-5 mb-5">
+            <ReactBootstrap.Spinner animation="border" variant="success" />
+          </div>
+        ) : null}
         <div className="container border mt-2 shadow p-3  bg-white rounded">
           {isLoading ? (
             <div>
               {posts.length ? (
-                <table class="table">
-                  <thead class="table-dark">
-                    <tr>
-                      <th>#</th>
-                      <th scope="col" className="text-center">
-                        Name
-                      </th>
-                      <th scope="col" className="text-center">
-                        Email
-                      </th>
-                      <th scope="col" className="text-center">
-                        Phone
-                      </th>
-                      <th scope="col" className="ml-5">
-                        Action
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {posts.map((post, index) => (
-                      <tr key={post.id}>
-                        <td className="text-center">{index + 1}</td>
-                        <td className="text-center">{post.name}</td>
-                        <td className="text-center">{post.email}</td>
-                        <td className="text-center">{post.phone}</td>
-                        <td>
-                          <Link
-                            className="btn btn-primary mr-5"
-                            to={`/student/view/${post.email}`}
-                          >
-                            View
-                          </Link>
-                          <Link
-                            className="btn btn-outline-primary mr-5"
-                            to={`/student/edit/${post.email}`}
-                          >
-                            Edit
-                          </Link>
+                <div>
+                  <div className="container">
+                    <div className="row col-md-14 col-md-offset-2 custyle">
+                      <table className="table table-striped custab table-responsive-lg">
+                        <thead className="table-dark">
+                          <tr>
+                            <th className="text-center">ID</th>
+                            <th className="text-center">Name</th>
+                            <th className="text-center">Email</th>
+                            <th className="text-center">Phone</th>
+                            <th className="text-center">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {posts.map((post, index) => (
+                            <tr key={post.id}>
+                              <td className="text-center">{index + 1}</td>
+                              <td className="text-center">{post.name}</td>
+                              <td className="text-center">{post.email}</td>
+                              <td className="text-center">{post.phone}</td>
+                              <td>
+                                <Link
+                                  className="btn btn-primary m-1"
+                                  to={`/student/view/${post.email}`}
+                                >
+                                  View
+                                </Link>
+                                <Link
+                                  className="btn btn-outline-primary m-1"
+                                  to={`/student/edit/${post.email}`}
+                                >
+                                  Edit
+                                </Link>
 
-                          <Button
-                            className="btn btn-danger"
-                            onClick={async () => {
-                              console.log("clicked")
-                                this.setState({isDeleting:true})  
+                                <Button
+                                  className="btn btn-danger m-1"
+                                  onClick={async () => {
+                                    console.log("clicked");
+                                    this.setState({ isDeleting: true });
 
-                                 await deleteUser(post.email);
-                                this.setState({
-                                  isDeleting: false,
-                                  show: true,                                
-                                  
-                                });
-                              
-                               this.loadUsers();
-                            }}
-                          >
-                            Delete
-                          </Button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                                    await deleteUser(post.email);
+                                    this.setState({
+                                      isDeleting: false,
+                                      show: true,
+                                    });
+
+                                    this.loadUsers();
+                                  }}
+                                >
+                                  Delete
+                                </Button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
               ) : (
                 <div className="text-center my-background">
                   <h1 className="py-5 text-uppercase">No data found</h1>

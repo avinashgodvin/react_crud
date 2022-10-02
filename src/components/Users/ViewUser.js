@@ -39,7 +39,7 @@ const ViewUser = () => {
   };
 
   return (
-    <div>
+    <div className = "container px-4">
       <div className="text-center py-3">
         <Link className="btn btn-primary mb-3" to="/">
           Go back

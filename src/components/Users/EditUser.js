@@ -85,7 +85,7 @@ const EditUser = () => {
 
   return (
     
-    <div>
+    <div >
           <div>
           <Modal show={show}>
             <Modal.Header>Success</Modal.Header>
@@ -98,7 +98,8 @@ const EditUser = () => {
           </Modal>
         </div>
       {loading?(
-    <div className="container py-3 border mt-5 ">
+        <div className="container px-4">
+    <div className="container py-3 border mt-2 ">
       <h3 className="text-center mb-5 mt-2 font-weight-light text-uppercase">Edit Student's data</h3>
       <form className="ml-5 mr-5" onSubmit={(e) => onSubmitHandle(e)}>
         <div class="mb-3">
@@ -146,6 +147,8 @@ const EditUser = () => {
           </button>
         </div>
       </form>
+    </div>
+    
     </div>):(      <div className="text-center mt-5">
           <ReactBootstrap.Spinner animation="border" variant="success" />
         </div>)}
