@@ -23,7 +23,7 @@ export class ShowData extends Component {
     //http://localhost:3002/findAll
 
     axios
-      .get("https://react-crud-backend-v1.herokuapp.com/findAll")
+      .get("https://react-crud-backend.onrender.com/findAll")
       .then((response) => {
         this.setState({
           isLoading: true,

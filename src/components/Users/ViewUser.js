@@ -20,7 +20,7 @@ const ViewUser = () => {
   const loadUser = async (event) => {
     await axios
       .post(
-        "https://react-crud-backend-v1.herokuapp.com/find",
+        "https://react-crud-backend.onrender.com/find",
         { email: email },
         {
           headers: {
@@ -39,7 +39,7 @@ const ViewUser = () => {
   };
 
   return (
-    <div className = "container px-4">
+    <div className="container px-4">
       <div className="text-center py-3">
         <Link className="btn btn-primary mb-3" to="/">
           Go back

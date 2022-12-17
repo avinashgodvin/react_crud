@@ -1,25 +1,26 @@
-import React,{useState} from 'react';
-import axios from 'axios';
-import {  Redirect} from "react-router-dom";
-import ShowData from '../Pages/ShowData';
+import React, { useState } from "react";
+import axios from "axios";
+import { Redirect } from "react-router-dom";
+import ShowData from "../Pages/ShowData";
 
-
-const deleteUser = async (email)=>{
-
-
-    await axios.post('https://react-crud-backend-v1.herokuapp.com/delete',{"email":email}, {
+const deleteUser = async (email) => {
+  await axios
+    .post(
+      "https://react-crud-backend.onrender.com/delete",
+      { email: email },
+      {
         headers: {
-        'Content-Type': 'application/json'
-        }
+          "Content-Type": "application/json",
+        },
       }
     )
-    .then((response)=>{
-        console.log(response)
+    .then((response) => {
+      console.log(response);
     })
-    .catch((error)=>{
-        console.log(error)
-    })
-   // console.log(user);
-}
+    .catch((error) => {
+      console.log(error);
+    });
+  // console.log(user);
+};
 
 export default deleteUser;
